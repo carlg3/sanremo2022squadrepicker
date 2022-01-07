@@ -1,0 +1,29 @@
+table,
+tr,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+
+.frm{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* border: 1px solid black;*/
+}
+.bottoni > input{
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+}
+select{
+    float: left;
+    padding: 2px;
+    margin: 5px;
+}

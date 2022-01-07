@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bruttezza.css">
+    <script type="text/javascript"> 
+        $(document).ready(function (){
+            $("form").on("submit", function(event) {
+                event.preventDefault();
+
+                // var data = $("form").serialize();
+                var data = [];
+                $('.frm input:checked').each(function() {
+                  data.push($(this).attr('value'));
+                });
+
+                console.log(data); // DEBUG
+                
+                $.ajax({
+                    type: "POST",
+                    url: "php/retriveData.php",
+                    data: {"scelti": data},
+                    dataType: "html",
+                    success: function(response){                    
+                        $("#responsecontainer").html(response);
+                    }
+                  });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="frm_container">
+<form class="frm" method='POST'>
+  <!-- DEBUG -->
+<fieldset>
+  <legend>Scegli quelli che vorresti in squadra (max 5)</legend> 
+  <input type="checkbox" name="concorrente" value="Achille_Lauro"/>Achille Lauro (32)</br>
+  <input type="checkbox" name="concorrente" value="Aka_7even"/>Aka 7even (23)</br>
+  <input type="checkbox" name="concorrente" value="Ana_Mena"/>Ana Mena (17)</br>
+  <input type="checkbox" name="concorrente" value="Dargen_DAmico"/>Dargen D'Amico (15)</br>
+  <input type="checkbox" name="concorrente" value="Ditonellapiaga_con_Donatella_Rettore"/>Ditonellapiaga con Donatella Rettore (15)</br>
+  <input type="checkbox" name="concorrente" value="Elisa"/>Elisa (28)</br>
+  <input type="checkbox" name="concorrente" value="Emma"/>Emma (25)</br>
+  <input type="checkbox" name="concorrente" value="Fabrizio_Moro"/>Fabrizio Moro (24)</br>
+  <input type="checkbox" name="concorrente" value="Gianni_Morandi"/>Gianni Morandi (20)</br>
+  <input type="checkbox" name="concorrente" value="Giovanni_Truppi"/>Giovanni Truppi (16)</br>
+  <input type="checkbox" name="concorrente" value="Giusy_Ferreri"/>Giusy Ferreri (18)</br>
+  <input type="checkbox" name="concorrente" value="Highsnob_e_Hu"/>Highsnob e Hu (15)</br>
+  <input type="checkbox" name="concorrente" value="Irama"/>Irama (25)</br>
+  <input type="checkbox" name="concorrente" value="Iva_Zanicchi"/>Iva Zanicchi (14)</br>
+  <input type="checkbox" name="concorrente" value="La_Rappresentante_di_Lista"/>La Rappresentante di Lista (19)</br>
+  <input type="checkbox" name="concorrente" value="Le_Vibrazioni"/>Le Vibrazioni (21)</br>
+  <input type="checkbox" name="concorrente" value="Mahmood_e_Blanco"/>Mahmood e Blanco (35)</br>
+  <input type="checkbox" name="concorrente" value="Massimo_Ranieri"/>Massimo Ranieri (20)</br>
+  <input type="checkbox" name="concorrente" value="Matteo_Romano"/>Matteo Romano (14)</br>
+  <input type="checkbox" name="concorrente" value="Michele_Bravi"/>Michele Bravi (23)</br>
+  <input type="checkbox" name="concorrente" value="Noemi"/>Noemi (24)</br>
+  <input type="checkbox" name="concorrente" value="Rkomi"/>Rkomi (16)</br>
+  <input type="checkbox" name="concorrente" value="Sangiovanni"/>Sangiovanni (26)</br>
+  <input type="checkbox" name="concorrente" value="Tananai"/>Tananai (16)</br>
+  <input type="checkbox" name="concorrente" value="Yuman"/>Yuman (14)</br>
+</fieldset>
+  <!-- FINE DEBUG -->
+  <!--
+       <select name="C1">
+        <option value="" selected disabled hidden>Choose here</option>
+        <option value="Achille_Lauro">Achille Lauro</option>
+        <option value="Aka_7even">Aka 7even</option>
+        <option value="Ana_Mena">Ana Mena</option>
+        <option value="Dargen_DAmico">Dargen D'Amico</option>
+        <option value="Ditonellapiaga_con_Donatella_Rettore">Ditonellapiaga con Donatella Rettore</option>
+        <option value="Elisa">Elisa</option>
+        <option value="Emma">Emma</option>
+        <option value="Fabrizio_Moro">Fabrizio Moro</option>
+        <option value="Gianni_Morandi">Gianni Morandi</option>
+        <option value="Giovanni_Truppi">Giovanni Truppi</option>
+        <option value="Giusy_Ferreri">Giusy Ferreri</option>
+        <option value="Highsnob_e_Hu">Highsnob e Hu</option>
+        <option value="Irama">Irama</option>
+        <option value="Iva_Zanicchi">Iva Zanicchi</option>
+        <option value="La_Rappresentante_di_Lista">La Rappresentante di Lista</option>
+        <option value="Le_Vibrazioni">Le Vibrazioni</option>
+        <option value="Mahmood_e_Blanco">Mahmood e Blanco</option>
+        <option value="Massimo_Ranieri">Massimo Ranieri</option>
+        <option value="Matteo_Romano">Matteo Romano</option>
+        <option value="Michele_Bravi">Michele Bravi</option>
+        <option value="Noemi">Noemi</option>
+        <option value="Rkomi">Rkomi</option>
+        <option value="Sangiovanni">Sangiovanni</option>
+        <option value="Tananai">Tananai</option>
+        <option value="Yuman">Yuman</option>
+      </select>
+      <select name="C2">
+        <option value="" selected disabled hidden>Choose here</option>
+        <option value="Achille_Lauro">Achille Lauro</option>
+        <option value="Aka_7even">Aka 7even</option>
+        <option value="Ana_Mena">Ana Mena</option>
+        <option value="Dargen_DAmico">Dargen D'Amico</option>
+        <option value="Ditonellapiaga_con_Donatella_Rettore">Ditonellapiaga con Donatella Rettore</option>
+        <option value="Elisa">Elisa</option>
+        <option value="Emma">Emma</option>
+        <option value="Fabrizio_Moro">Fabrizio Moro</option>
+        <option value="Gianni_Morandi">Gianni Morandi</option>
+        <option value="Giovanni_Truppi">Giovanni Truppi</option>
+        <option value="Giusy_Ferreri">Giusy Ferreri</option>
+        <option value="Highsnob_e_Hu">Highsnob e Hu</option>
+        <option value="Irama">Irama</option>
+        <option value="Iva_Zanicchi">Iva Zanicchi</option>
+        <option value="La_Rappresentante_di_Lista">La Rappresentante di Lista</option>
+        <option value="Le_Vibrazioni">Le Vibrazioni</option>
+        <option value="Mahmood_e_Blanco">Mahmood e Blanco</option>
+        <option value="Massimo_Ranieri">Massimo Ranieri</option>
+        <option value="Matteo_Romano">Matteo Romano</option>
+        <option value="Michele_Bravi">Michele Bravi</option>
+        <option value="Noemi">Noemi</option>
+        <option value="Rkomi">Rkomi</option>
+        <option value="Sangiovanni">Sangiovanni</option>
+        <option value="Tananai">Tananai</option>
+        <option value="Yuman">Yuman</option>
+      </select>
+      <select name="C3">
+        <option value="" selected disabled hidden>Choose here</option>
+        <option value="Achille_Lauro">Achille Lauro</option>
+        <option value="Aka_7even">Aka 7even</option>
+        <option value="Ana_Mena">Ana Mena</option>
+        <option value="Dargen_DAmico">Dargen D'Amico</option>
+        <option value="Ditonellapiaga_con_Donatella_Rettore">Ditonellapiaga con Donatella Rettore</option>
+        <option value="Elisa">Elisa</option>
+        <option value="Emma">Emma</option>
+        <option value="Fabrizio_Moro">Fabrizio Moro</option>
+        <option value="Gianni_Morandi">Gianni Morandi</option>
+        <option value="Giovanni_Truppi">Giovanni Truppi</option>
+        <option value="Giusy_Ferreri">Giusy Ferreri</option>
+        <option value="Highsnob_e_Hu">Highsnob e Hu</option>
+        <option value="Irama">Irama</option>
+        <option value="Iva_Zanicchi">Iva Zanicchi</option>
+        <option value="La_Rappresentante_di_Lista">La Rappresentante di Lista</option>
+        <option value="Le_Vibrazioni">Le Vibrazioni</option>
+        <option value="Mahmood_e_Blanco">Mahmood e Blanco</option>
+        <option value="Massimo_Ranieri">Massimo Ranieri</option>
+        <option value="Matteo_Romano">Matteo Romano</option>
+        <option value="Michele_Bravi">Michele Bravi</option>
+        <option value="Noemi">Noemi</option>
+        <option value="Rkomi">Rkomi</option>
+        <option value="Sangiovanni">Sangiovanni</option>
+        <option value="Tananai">Tananai</option>
+        <option value="Yuman">Yuman</option>
+      </select>
+      <select name="C4">
+        <option value="" selected disabled hidden>Choose here</option>
+        <option value="Achille_Lauro">Achille Lauro</option>
+        <option value="Aka_7even">Aka 7even</option>
+        <option value="Ana_Mena">Ana Mena</option>
+        <option value="Dargen_DAmico">Dargen D'Amico</option>
+        <option value="Ditonellapiaga_con_Donatella_Rettore">Ditonellapiaga con Donatella Rettore</option>
+        <option value="Elisa">Elisa</option>
+        <option value="Emma">Emma</option>
+        <option value="Fabrizio_Moro">Fabrizio Moro</option>
+        <option value="Gianni_Morandi">Gianni Morandi</option>
+        <option value="Giovanni_Truppi">Giovanni Truppi</option>
+        <option value="Giusy_Ferreri">Giusy Ferreri</option>
+        <option value="Highsnob_e_Hu">Highsnob e Hu</option>
+        <option value="Irama">Irama</option>
+        <option value="Iva_Zanicchi">Iva Zanicchi</option>
+        <option value="La_Rappresentante_di_Lista">La Rappresentante di Lista</option>
+        <option value="Le_Vibrazioni">Le Vibrazioni</option>
+        <option value="Mahmood_e_Blanco">Mahmood e Blanco</option>
+        <option value="Massimo_Ranieri">Massimo Ranieri</option>
+        <option value="Matteo_Romano">Matteo Romano</option>
+        <option value="Michele_Bravi">Michele Bravi</option>
+        <option value="Noemi">Noemi</option>
+        <option value="Rkomi">Rkomi</option>
+        <option value="Sangiovanni">Sangiovanni</option>
+        <option value="Tananai">Tananai</option>
+        <option value="Yuman">Yuman</option>
+      </select>
+      <select name="C5">
+        <option value="" selected disabled hidden>Choose here</option>
+        <option value="Achille_Lauro">Achille Lauro</option>
+        <option value="Aka_7even">Aka 7even</option>
+        <option value="Ana_Mena">Ana Mena</option>
+        <option value="Dargen_DAmico">Dargen D'Amico</option>
+        <option value="Ditonellapiaga_con_Donatella_Rettore">Ditonellapiaga con Donatella Rettore</option>
+        <option value="Elisa">Elisa</option>
+        <option value="Emma">Emma</option>
+        <option value="Fabrizio_Moro">Fabrizio Moro</option>
+        <option value="Gianni_Morandi">Gianni Morandi</option>
+        <option value="Giovanni_Truppi">Giovanni Truppi</option>
+        <option value="Giusy_Ferreri">Giusy Ferreri</option>
+        <option value="Highsnob_e_Hu">Highsnob e Hu</option>
+        <option value="Irama">Irama</option>
+        <option value="Iva_Zanicchi">Iva Zanicchi</option>
+        <option value="La_Rappresentante_di_Lista">La Rappresentante di Lista</option>
+        <option value="Le_Vibrazioni">Le Vibrazioni</option>
+        <option value="Mahmood_e_Blanco">Mahmood e Blanco</option>
+        <option value="Massimo_Ranieri">Massimo Ranieri</option>
+        <option value="Matteo_Romano">Matteo Romano</option>
+        <option value="Michele_Bravi">Michele Bravi</option>
+        <option value="Noemi">Noemi</option>
+        <option value="Rkomi">Rkomi</option>
+        <option value="Sangiovanni">Sangiovanni</option>
+        <option value="Tananai">Tananai</option>
+        <option value="Yuman">Yuman</option>
+      </select>
+    -->
+  <div class="bottoni">
+    <input type="reset" id="resetBtn" value="Reset">
+    <input type="submit" id="checkBtn" value="Submit">
+  </div>
+</form>
+</div>
+<!--
+    <input type="button" id="display" value="Display All Data"/>
+-->
+    <div id="responsecontainer"></div>
+</body>
+</html>
