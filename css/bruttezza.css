@@ -9,21 +9,22 @@ tfoot {
     background-color: #333;
     color: #fff;
 }
-
-.frm{
+.main_container{
     display: flex;
+    align-content: flex-start;
+    justify-content: space-between;
+}
+.disclaimer{
+    margin-right: 10%;
+    width: 45%;
+}
+.frm{
     flex-direction: column;
-    width: 50%;
-    /* border: 1px solid black;*/
+    width: auto;
 }
 .bottoni > input{
     flex-direction: row;
     justify-content: center;
     padding: 5px;
-    margin: 5px;
-}
-select{
-    float: left;
-    padding: 2px;
     margin: 5px;
 }

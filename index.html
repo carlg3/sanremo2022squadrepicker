@@ -14,21 +14,33 @@
                 });
 
                 console.log(data); // DEBUG
-                
-                $.ajax({
-                    type: "POST",
-                    url: "php/retriveData.php",
-                    data: {"scelti": data},
-                    dataType: "html",
-                    success: function(response){                    
-                        $("#responsecontainer").html(response);
-                    }
-                  });
+                if (data.length != 0 && data.length<=5){
+                  $.ajax({
+                      type: "POST",
+                      url: "php/retriveData.php",
+                      data: {"scelti": data},
+                      dataType: "html",
+                      success: function(response){                    
+                          $("#responsecontainer").html(response);
+                      }});
+                }else{
+                  if(data.lenght >= 5){
+                    alert("Puoi selezionare al massimo 5 concorrenti!!!! >:-|");
+                    $('.frm input:checked').prop('checked', false);
+                  }else{
+                    alert("Scegline almeno 1 su..");
+                  }
+                }
             });
+            
+            $("#resetBtn").click(function(){
+              $("#responsecontainer").html('');
+            })
         });
     </script>
 </head>
 <body>
+<div class="main_container">
 <div class="frm_container">
 <form class="frm" method='POST'>
   <!-- DEBUG -->
@@ -208,6 +220,15 @@
     <input type="submit" id="checkBtn" value="Submit">
   </div>
 </form>
+</div>
+<div class="disclaimer">
+  <h3>Disclaimer</h3>
+  <p>
+    Dovrebbe consigliare delle possibili squadre da scegliere nel caso voleste avere proprio quel cantante l&agrave. <br>
+    Il problema era che in squadra volevo Blanchito beibe e Massimino Ranieri e non sapevo chi scegliere dopo, quindi in pratica "funziona" meglio se si scelgono 2 concorrenti e il resto va da s&egrave.
+    <br>Non ci ho perso tantissimo tempo perch&eacute mi sono accorto che alla fine non aveva tantissimo senso come idea :P e qst &egrave..
+  </p>
+</div>
 </div>
 <!--
     <input type="button" id="display" value="Display All Data"/>
