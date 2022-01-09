@@ -28,3 +28,8 @@ tfoot {
     padding: 5px;
     margin: 5px;
 }
+#responsecontainer{
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
