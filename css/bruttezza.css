@@ -1,14 +1,13 @@
-table,
-tr,
-td {
+table, tr, td{
     border: 1px solid #333;
 }
 
-thead,
-tfoot {
+thead, tfoot {
     background-color: #333;
     color: #fff;
 }
+
+/* ------------------- */
 .main_container{
     display: flex;
     align-content: flex-start;
@@ -18,6 +17,9 @@ tfoot {
     margin-right: 10%;
     width: 45%;
 }
+/* ------------------- */
+
+/* ------- form ------ */
 .frm{
     flex-direction: column;
     width: auto;
@@ -28,8 +30,15 @@ tfoot {
     padding: 5px;
     margin: 5px;
 }
-#responsecontainer{
-    text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
+/* ------------------- */
+
+/* --- php response --- */
+td, tr {
+	width: fit-content;
 }
+
+#responsecontainer, table *{
+	text-align: center;
+    margin: 5%;
+}
+/* ------------------- */
