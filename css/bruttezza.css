@@ -11,12 +11,15 @@ thead, tfoot {
 .main_container{
     display: flex;
     align-content: flex-start;
+    flex-direction: row;
     justify-content: space-between;
 }
+/*
 .disclaimer{
     margin-right: 10%;
     width: 45%;
 }
+*/
 /* ------------------- */
 
 /* ------- form ------ */
@@ -27,8 +30,8 @@ thead, tfoot {
 .bottoni > input{
     flex-direction: row;
     justify-content: center;
-    padding: 5px;
-    margin: 5px;
+    padding: 2px;
+    margin: 2px;
 }
 /* ------------------- */
 
@@ -37,8 +40,12 @@ td, tr {
 	width: fit-content;
 }
 
+table {
+    width: 50%;
+}
+
 #responsecontainer, table *{
 	text-align: center;
-    margin: 5%;
+    /*margin: 5%;*/
 }
 /* ------------------- */

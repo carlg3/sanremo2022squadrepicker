@@ -1,12 +1,19 @@
+ALERT_POST = "\
+-- Disclaimer --\n\
+Mostra le possibili squadre a seconda dei concorrenti che scegliete. \n\
+Potrebbe \"funzionare\" meglio se si scelgono 2 o 3 concorrenti a volta, senn\u00F2" + " \u00E8 probabile che non trova niente.\n\
+Ci ho perso poco tempo perch\u00E9 mi sono accorto che non aveva tantissimo senso per\u00F2 un'idea della squadra la d\u00E0 :PPP\
+";
+
 $(document).ready(function (){
-    $("form").on("submit", function(event) {
+    alert(ALERT_POST);
+
+    $("form").on("submit", function(event){
         event.preventDefault();
 
         // var data = $("form").serialize();
         var data = [];
-        $('.frm input:checked').each(function() {
-          data.push($(this).attr('value'));
-        });
+        $('.frm input:checked').each(function(){ data.push($(this).attr('value')); });
 
         // console.log(data); // DEBUG
         // console.log(data.length); // DEBUG
@@ -31,7 +38,5 @@ $(document).ready(function (){
         }
     });
     
-    $("#resetBtn").click(function(){
-      $("#responsecontainer").html('');
-    })
+    $("#resetBtn").click(function(){ $("#responsecontainer").html(''); });
 });

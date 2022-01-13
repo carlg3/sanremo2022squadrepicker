@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/bruttezza.css">
-    <script type="text/javascript" src="js/util.js"></script>
-</head>
-<body>
-<div class="main_container">
-<div class="frm_container">
-<form class="frm" method='POST'>
-<fieldset>
-  <legend>Scegli quelli che vorresti in squadra (max 5)</legend> 
-  <input type="checkbox" name="concorrente" value="Achille_Lauro"/>Achille Lauro (32)</br>
-  <input type="checkbox" name="concorrente" value="Aka_7even"/>Aka 7even (23)</br>
-  <input type="checkbox" name="concorrente" value="Ana_Mena"/>Ana Mena (17)</br>
-  <input type="checkbox" name="concorrente" value="Dargen_DAmico"/>Dargen D'Amico (15)</br>
-  <input type="checkbox" name="concorrente" value="Ditonellapiaga_con_Donatella_Rettore"/>Ditonellapiaga con Donatella Rettore (15)</br>
-  <input type="checkbox" name="concorrente" value="Elisa"/>Elisa (28)</br>
-  <input type="checkbox" name="concorrente" value="Emma"/>Emma (25)</br>
-  <input type="checkbox" name="concorrente" value="Fabrizio_Moro"/>Fabrizio Moro (24)</br>
-  <input type="checkbox" name="concorrente" value="Gianni_Morandi"/>Gianni Morandi (20)</br>
-  <input type="checkbox" name="concorrente" value="Giovanni_Truppi"/>Giovanni Truppi (16)</br>
-  <input type="checkbox" name="concorrente" value="Giusy_Ferreri"/>Giusy Ferreri (18)</br>
-  <input type="checkbox" name="concorrente" value="Highsnob_e_Hu"/>Highsnob e Hu (15)</br>
-  <input type="checkbox" name="concorrente" value="Irama"/>Irama (25)</br>
-  <input type="checkbox" name="concorrente" value="Iva_Zanicchi"/>Iva Zanicchi (14)</br>
-  <input type="checkbox" name="concorrente" value="La_Rappresentante_di_Lista"/>La Rappresentante di Lista (19)</br>
-  <input type="checkbox" name="concorrente" value="Le_Vibrazioni"/>Le Vibrazioni (21)</br>
-  <input type="checkbox" name="concorrente" value="Mahmood_e_Blanco"/>Mahmood e Blanco (35)</br>
-  <input type="checkbox" name="concorrente" value="Massimo_Ranieri"/>Massimo Ranieri (20)</br>
-  <input type="checkbox" name="concorrente" value="Matteo_Romano"/>Matteo Romano (14)</br>
-  <input type="checkbox" name="concorrente" value="Michele_Bravi"/>Michele Bravi (23)</br>
-  <input type="checkbox" name="concorrente" value="Noemi"/>Noemi (24)</br>
-  <input type="checkbox" name="concorrente" value="Rkomi"/>Rkomi (16)</br>
-  <input type="checkbox" name="concorrente" value="Sangiovanni"/>Sangiovanni (26)</br>
-  <input type="checkbox" name="concorrente" value="Tananai"/>Tananai (16)</br>
-  <input type="checkbox" name="concorrente" value="Yuman"/>Yuman (14)</br>
-</fieldset>
-  <div class="bottoni">
-    <input type="reset" id="resetBtn" value="Cancella">
-    <input type="submit" id="checkBtn" value="Cerca">
-  </div>
-</form>
-</div>
-<div class="disclaimer">
-  <h3>Disclaimer</h3>
-  <p>
-    Dovrebbe consigliare delle possibili squadre da scegliere nel caso voleste avere proprio quel cantante l&agrave. <br>
-    Il problema era che in squadra volevo Blanchito beibe e Massimino Ranieri e non sapevo chi scegliere dopo, quindi in pratica "funziona" meglio se si scelgono 2 concorrenti e il resto va da s&egrave.
-    <br>Non ci ho perso tantissimo tempo perch&eacute mi sono accorto che alla fine non aveva tantissimo senso come idea :P e qst &egrave..
-  </p>
-</div>
-</div>
-    <div id="responsecontainer"></div>
-</body>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/bruttezza.css">
+      <script type="text/javascript" src="js/util.js"></script>
+  </head>
+  <body>
+    <div class="main_container">
+      <div class="frm_container">
+      <form class="frm" method='POST'>
+      <fieldset>
+        <legend>Scegli quelli che vorresti in squadra (max 5)</legend> 
+        <input type="checkbox" name="concorrente" value="Achille_Lauro"/>Achille Lauro (32)</br>
+        <input type="checkbox" name="concorrente" value="Aka_7even"/>Aka 7even (23)</br>
+        <input type="checkbox" name="concorrente" value="Ana_Mena"/>Ana Mena (17)</br>
+        <input type="checkbox" name="concorrente" value="Dargen_DAmico"/>Dargen D'Amico (15)</br>
+        <input type="checkbox" name="concorrente" value="Ditonellapiaga_con_Donatella_Rettore"/>Ditonellapiaga con Donatella Rettore (15)</br>
+        <input type="checkbox" name="concorrente" value="Elisa"/>Elisa (28)</br>
+        <input type="checkbox" name="concorrente" value="Emma"/>Emma (25)</br>
+        <input type="checkbox" name="concorrente" value="Fabrizio_Moro"/>Fabrizio Moro (24)</br>
+        <input type="checkbox" name="concorrente" value="Gianni_Morandi"/>Gianni Morandi (20)</br>
+        <input type="checkbox" name="concorrente" value="Giovanni_Truppi"/>Giovanni Truppi (16)</br>
+        <input type="checkbox" name="concorrente" value="Giusy_Ferreri"/>Giusy Ferreri (18)</br>
+        <input type="checkbox" name="concorrente" value="Highsnob_e_Hu"/>Highsnob e Hu (15)</br>
+        <input type="checkbox" name="concorrente" value="Irama"/>Irama (25)</br>
+        <input type="checkbox" name="concorrente" value="Iva_Zanicchi"/>Iva Zanicchi (14)</br>
+        <input type="checkbox" name="concorrente" value="La_Rappresentante_di_Lista"/>La Rappresentante di Lista (19)</br>
+        <input type="checkbox" name="concorrente" value="Le_Vibrazioni"/>Le Vibrazioni (21)</br>
+        <input type="checkbox" name="concorrente" value="Mahmood_e_Blanco"/>Mahmood e Blanco (35)</br>
+        <input type="checkbox" name="concorrente" value="Massimo_Ranieri"/>Massimo Ranieri (20)</br>
+        <input type="checkbox" name="concorrente" value="Matteo_Romano"/>Matteo Romano (14)</br>
+        <input type="checkbox" name="concorrente" value="Michele_Bravi"/>Michele Bravi (23)</br>
+        <input type="checkbox" name="concorrente" value="Noemi"/>Noemi (24)</br>
+        <input type="checkbox" name="concorrente" value="Rkomi"/>Rkomi (16)</br>
+        <input type="checkbox" name="concorrente" value="Sangiovanni"/>Sangiovanni (26)</br>
+        <input type="checkbox" name="concorrente" value="Tananai"/>Tananai (16)</br>
+        <input type="checkbox" name="concorrente" value="Yuman"/>Yuman (14)</br>
+      </fieldset>
+        <div class="bottoni">
+          <input type="reset" id="resetBtn" value="Cancella">
+          <input type="submit" id="checkBtn" value="Cerca">
+        </div>
+      </form>
+      </div>
+      <!--
+      <div class="disclaimer">
+        <h3>Disclaimer</h3>
+        <p>
+          Dovrebbe consigliare delle possibili squadre da scegliere nel caso voleste avere proprio quel cantante l&agrave. <br>
+          Il problema era che in squadra volevo Blanchito beibe e Massimino Ranieri e non sapevo chi scegliere dopo, quindi in pratica "funziona" meglio se si scelgono 2 concorrenti e il resto va da s&egrave.
+          <br>Non ci ho perso tantissimo tempo perch&eacute mi sono accorto che alla fine non aveva tantissimo senso come idea :P e qst &egrave..
+        </p>
+      </div>
+    -->
+      <div id="responsecontainer"></div>
+    </div>
+  </body>
 </html>
