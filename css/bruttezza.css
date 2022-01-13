@@ -1,3 +1,10 @@
+/*
+html * {
+    font-size: 16px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+*/
+
 table, tr, td{
     border: 1px solid #333;
 }
@@ -25,13 +32,13 @@ thead, tfoot {
 /* ------- form ------ */
 .frm{
     flex-direction: column;
-    width: auto;
+    width: 100%;
 }
 .bottoni > input{
     flex-direction: row;
     justify-content: center;
-    padding: 2px;
-    margin: 2px;
+    padding: 3px;
+    margin: 3px;
 }
 /* ------------------- */
 
@@ -46,6 +53,6 @@ table {
 
 #responsecontainer, table *{
 	text-align: center;
-    /*margin: 5%;*/
+    margin-left: 4px;
 }
 /* ------------------- */
